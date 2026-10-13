@@ -1,0 +1,28 @@
+
+BAI THUC HANH DG1
+MSSV: 2412111050
+
+KIEM THU API FLASK
+
+1. GET /api/health
+Lenh: curl -i http://localhost:5000/api/health
+Ket qua mong doi: HTTP 200 OK
+
+2. GET /api/students
+Lenh: curl -i http://localhost:5000/api/students
+Ket qua mong doi: HTTP 200 OK
+
+3. GET /api/students/1
+Lenh: curl -i http://localhost:5000/api/students/1
+Ket qua mong doi: HTTP 200 OK neu ID ton tai
+
+4. GET /api/students/9999
+Lenh: curl -i http://localhost:5000/api/students/9999
+Ket qua mong doi: HTTP 404 NOT FOUND neu ID khong ton tai
+
+5. POST /api/students
+Du lieu: mssv, ho_ten, lop, diem
+Ket qua mong doi: HTTP 201 CREATED
+
+6. POST voi diem = 11
+Ket qua mong doi: HTTP 400 BAD REQUEST

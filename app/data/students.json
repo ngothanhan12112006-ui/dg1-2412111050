@@ -1,9 +1,30 @@
 [
-  {
-    "id": 1,
-    "mssv": "2412111050",
-    "ho_ten": "Ngô Thành An",
-    "lop": "CT2801",
-    "diem": 8.0
-  }
-
+    {
+        "id": 1,
+        "mssv": "2412111050",
+        "ho_ten": "Ngô Thành An",
+        "lop": "CT2801C",
+        "diem": 8.5
+    },
+    {
+        "id": 2,
+        "mssv": "2412111051",
+        "ho_ten": "Nguyễn Anh Quân",
+        "lop": "CT2801C",
+        "diem": 7.5
+    },
+    {
+        "id": 3,
+        "mssv": "999999",
+        "ho_ten": "Sinh Vien Test",
+        "lop": "TEST",
+        "diem": 8.5
+    },
+    {
+        "id": 4,
+        "mssv": "999999",
+        "ho_ten": "Nguyễn Đức Thiện",
+        "lop": "CT2801",
+        "diem": 8.5
+    }
+]
