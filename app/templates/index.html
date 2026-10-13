@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quản lý sinh viên</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>QUẢN LÝ SINH VIÊN</h1>
+
+        <div class="card">
+
+            <h2>Danh sách sinh viên</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ tên</th>
+                        <th>Lớp</th>
+                        <th>Điểm</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for student in students %}
+
+                    <tr>
+                        <td>{{ student.id }}</td>
+
+                        <td>
+                            {{ student.ho_ten }}
+                        </td>
+
+                        <td>
+                            {{ student.lop }}
+                        </td>
+
+                        <td>
+                            {{ student.diem }}
+                        </td>
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+                        <td colspan="4">
+                            Chưa có sinh viên
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Thêm sinh viên</h2>
+
+            <form id="studentForm">
+
+                <div class="form-group">
+
+                    <label>Họ tên</label>
+
+                    <input
+                        type="text"
+                        id="ho_ten"
+                        placeholder="Nhập họ tên"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Lớp</label>
+
+                    <input
+                        type="text"
+                        id="lop"
+                        placeholder="Ví dụ: CT2801"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Điểm</label>
+
+                    <input
+                        type="number"
+                        id="diem"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                        placeholder="0 - 10"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Thêm sinh viên
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document
+            .getElementById("studentForm")
+            .addEventListener("submit", async function(event) {
+
+                event.preventDefault();
+
+                const ho_ten =
+                    document.getElementById("ho_ten").value;
+
+                const lop =
+                    document.getElementById("lop").value;
+
+                const diem =
+                    document.getElementById("diem").value;
+
+
+                const response = await fetch("/api/students", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        ho_ten: ho_ten,
+                        lop: lop,
+                        diem: diem
+                    })
+
+                });
+
+
+                const result = await response.json();
+
+                const message =
+                    document.getElementById("message");
+
+
+                if (response.ok) {
+
+                    message.textContent =
+                        "Thêm sinh viên thành công!";
+
+                    message.className = "success";
+
+                    document
+                        .getElementById("studentForm")
+                        .reset();
+
+                    setTimeout(function() {
+                        location.reload();
+                    }, 700);
+
+                } else {
+
+                    message.textContent =
+                        result.error || "Có lỗi xảy ra";
+
+                    message.className = "error";
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html><!DOCTYPE <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG1 - Ngô Thành An - 2412111050</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>DG1 - Ngô Thành An - 2412111050</h1>
+
+        <h2>Danh sách sinh viên</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MSSV</th>
+                    <th>Họ tên</th>
+                    <th>Lớp</th>
+                    <th>Điểm</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.mssv }}</td>
+                    <td>{{ student.ho_ten }}</td>
+                    <td>{{ student.lop }}</td>
+                    <td>{{ student.diem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG1 – Ngô Thành An – 2412111050</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>DG1 – Ngô Thành An – 2412111050</h1>
+
+        <h2>Danh sách sinh viên</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MSSV</th>
+          
